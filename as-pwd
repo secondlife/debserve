@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Run the command as the user who owns the pwd
+
+set -e
+
+pwd=$(pwd)
+user="$(stat -c "%u" "$pwd")"
+group="$(stat -c "%g" "$pwd")"
+
+exec su-exec $user:$group "$@"
