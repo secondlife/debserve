@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -28,9 +29,11 @@ jobs:
         run: |
           go mod tidy
           go test -v
+
   build-image:
-    runs-on: ubuntu-latest
+    name: Build image
     needs: test
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
 
@@ -76,9 +79,11 @@ jobs:
           password: ${{ secrets.SHARED_DOCKERHUB_TOKEN }}
           repository: lindenlab/debserve
           short-description: Self-contained debian package server
+
   build-package:
-    runs-on: ubuntu-latest
+    name: Build package
     needs: test
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
         with:
