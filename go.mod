@@ -1,11 +1,11 @@
 module github.com/secondlife/debserve
 
-go 1.22.2
+go 1.23
 
 require (
 	github.com/blakesmith/ar v0.0.0-20190502131153-809d4375e1fb
 	github.com/dsnet/compress v0.0.1
-	github.com/fsnotify/fsnotify v1.9.0
+	github.com/fsnotify/fsnotify v1.10.1
 	github.com/ulikunitz/xz v0.5.15
 )
 
